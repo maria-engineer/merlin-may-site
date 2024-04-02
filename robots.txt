@@ -1,0 +1,10 @@
+User-agent: AiBot
+Disallow: /
+
+User-agent: GoogleBot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+Sitemap: https://merlinmay.co.uk/sitemap-index.xml
+Host: https://merlinmay.co.uk

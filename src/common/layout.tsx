@@ -10,6 +10,16 @@ const Main = styled.main`
     padding: 0rem 2rem 0rem 2rem;
 `;
 
+const Footer = styled.footer`
+    align-self: center;
+    text-align:center;
+    color: rgba(0,0,0,0.55);
+
+    a {
+        color: rgba(0,0,0,0.55);
+    }
+`;
+
 
 
 type LayoutProps = {
@@ -48,6 +58,12 @@ export default function Layout(props : LayoutProps) {
     <Main>
         <Header page={props.page}/>
         {props.children}
+
+        <Footer >
+            © {new Date().getFullYear()} Merlin May, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.com">Gatsby</a>
+          </Footer>
     </Main>
       
     </React.Fragment>

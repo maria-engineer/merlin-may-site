@@ -17,11 +17,17 @@ const Column1 = styled.div`
 `;
 
 const ColumnBreak = styled.div`
+  @media (max-width: 600px) {
+    width: 5%;
+  }
   width: 9%;
   padding: 1rem;
 `;
 
 const Column2 = styled.div`
+  @media (max-width: 600px) {
+    width: 45%;
+  }
   width: 41%;
   padding: 1rem;
   align-contents: right;

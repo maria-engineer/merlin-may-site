@@ -1,24 +1,35 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import Layout from "../common/layout";
-import { Body } from "../common/commonStyles";
+import { Body, SectionTitle, Text } from "../common/commonStyles";
 
 import styled from "@emotion/styled";
 import { StaticImage } from "gatsby-plugin-image";
+import Subscribe from "../common/subscribeComponent";
 
 const Main = styled.div`
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
 const Column1 = styled.div`
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 0.5rem;
+  }
   width: 50%;
   padding: 1rem;
 `;
 
 const ColumnBreak = styled.div`
   @media (max-width: 600px) {
-    width: 5%;
+    height: 5%;
+    width: 100%;
+    padding: 0.5rem;
   }
   width: 9%;
   padding: 1rem;
@@ -26,11 +37,12 @@ const ColumnBreak = styled.div`
 
 const Column2 = styled.div`
   @media (max-width: 600px) {
-    width: 45%;
+    width: 100%;
+    padding: 0.5rem;
   }
   width: 41%;
   padding: 1rem;
-  align-contents: right;
+  align-content: right;
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -38,6 +50,7 @@ const IndexPage: React.FC<PageProps> = () => {
     <Layout
       page="About"
       title="Merlin May - Author"
+      SeoImage="../images/merlin.png"
       SeoDescription="The official website of Merlin May."
       SeoKeywords={[
         "Merlin May",
@@ -47,10 +60,11 @@ const IndexPage: React.FC<PageProps> = () => {
       ]}
     >
       <Body>
+        <SectionTitle>About Merlin</SectionTitle>
         <Main>
           <Column1>
-            Merlin May is a software engineer and author based in London, United
-            Kingdom. They hope to write their first novel soon, if they can stop
+            Merlin May is a software engineer and author based in Seoul, South
+            Korea. They hope to write their first novel soon, if they can stop
             getting distracted by every single detail in their own homebrew
             TTRPG. Merlin has a degree in Computer Science from Oxford
             University, but don't hold that against them.
@@ -58,7 +72,11 @@ const IndexPage: React.FC<PageProps> = () => {
           <ColumnBreak />
           <Column2>
             <StaticImage
-              border-radius={"20px"}
+              style={{
+                alignSelf: "right",
+                borderRadius: "40px",
+                boxShadow: "0 2px 1px hsl(220, 7%, 83%)",
+              }}
               width={200}
               height={200}
               alt={
@@ -68,6 +86,8 @@ const IndexPage: React.FC<PageProps> = () => {
             />
           </Column2>
         </Main>
+        <SectionTitle>Subscribe for updates</SectionTitle>
+        <Subscribe />
       </Body>
     </Layout>
   );

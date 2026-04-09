@@ -8,6 +8,7 @@ const ContactPage: React.FC<PageProps> = () => {
     <Layout
       page="Contact"
       title="Merlin May - Contact"
+      SeoImage="../images/merlin.png"
       SeoDescription="The official website of Merlin May."
       SeoKeywords={[
         "Merlin May",

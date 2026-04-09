@@ -4,45 +4,49 @@ import styled from "@emotion/styled";
 import Header from "./header";
 
 const Main = styled.main`
-    background-color: #fff;
-    font-family: Cormorant;
-    color: rgba(0,0,0,0.75);
-    padding: 0rem 2rem 0rem 2rem;
+  @media (max-width: 600px) {
+    padding: 0rem 0.1rem 0rem 0.1rem;
+  }
+  background-color: #fff;
+  font-family: Cormorant;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 0rem 2rem 0rem 2rem;
 `;
 
 const Footer = styled.footer`
-    align-self: center;
-    text-align:center;
-    color: rgba(0,0,0,0.55);
+  align-self: center;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.55);
 
-    a {
-        color: rgba(0,0,0,0.55);
-    }
+  a {
+    color: rgba(0, 0, 0, 0.55);
+  }
 `;
 
-
-
 type LayoutProps = {
-    SeoKeywords: Array<string>,
-    SeoDescription: string,
-    title: string,
-    page: string,
-    children: JSX.Element
-}
+  SeoKeywords: Array<string>;
+  SeoDescription: string;
+  title: string;
+  page: string;
+  SeoImage: string;
+  children: JSX.Element;
+};
 
-export default function Layout(props : LayoutProps) {
+export default function Layout(props: LayoutProps) {
   return (
     <React.Fragment>
-      <Helmet>
-      <meta name={`description`} content={props.SeoDescription} />
+      <head>
+        <meta name={`description`} content={props.SeoDescription} />
         <meta name={`twitter:title`} content={props.title} />
         <meta name={`twitter:description`} content={props.SeoDescription} />
         <meta name={`twitter:card`} content={"summary"} />
         <meta name={`og:title`} content={props.title} />
         <meta name={`og:description`} content={props.SeoDescription} />
+        <meta name={`og:image`} content={props.SeoImage}/>
         <meta name={"keywords"} content={props.SeoKeywords.join(",")} />
         <meta name={"lang"} content={"en-GB"} />
         <title>{props.title}</title>
+        <meta name={"author"} content={"Merlin May"}/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="viewport"
@@ -54,18 +58,17 @@ export default function Layout(props : LayoutProps) {
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
           crossorigin="anonymous"
         />
-      </Helmet>
-    <Main>
-        <Header page={props.page}/>
+      </head>
+      <Main>
+        <Header page={props.page} />
         {props.children}
 
-        <Footer >
-            © {new Date().getFullYear()} Merlin May, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby</a>
-          </Footer>
-    </Main>
-      
+        <Footer>
+          © {new Date().getFullYear()} Merlin May, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        </Footer>
+      </Main>
     </React.Fragment>
   );
 }

@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Merlin May - Author`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://merlinmay.co.uk`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -31,9 +31,16 @@ const config: GatsbyConfig = {
         icon: "src/images/merlin.png",
       },
     },
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://merlinmay.us22.list-manage.com/subscribe/post?u=99ea9d07200ddc8eb050e1303&amp;id=824e7e1c2a&amp;f_id=00d3c7e1f0", // string; add your MC list endpoint here; see instructions below
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

@@ -12,18 +12,21 @@ import {
 } from "./shortStories";
 import { StaticImage } from "gatsby-plugin-image";
 
-const BooksPage: React.FC<PageProps> = () => {
+const TTRPGPage: React.FC<PageProps> = () => {
   return (
     <Layout
-      page="Books"
-      title="Merlin May - Books"
-      SeoDescription="The official website of Merlin May."
+      page="TTRPG"
+      title="Merlin May - TTRPG"
+      SeoDescription="Merlin May is the pen name under which they write fiction. Merlin has a passion for tabletop RPG, especially homebrew ones. Here are the games they developed, as well as stories they may have written for other systems."
       SeoKeywords={[
         "Merlin May",
         "Author",
         "Author Merlin May",
         "fiction writer Merlin May",
-        "Merlin May published books",
+        "Merlin May ttrpgs",
+        "ttrpg",
+        "homebrew ttrpg",
+        "tabletop roleplaying games","dungeons and dragons"
       ]}
       SeoImage="../images/merlin.png"
     >
@@ -45,20 +48,9 @@ const BooksPage: React.FC<PageProps> = () => {
               src={"../images/robin.png"}
             />
             <ShortStoryContent>
-              <ShortStoryTitle>Robin's Travels</ShortStoryTitle>
+              <ShortStoryTitle>Transmigration</ShortStoryTitle>
               <ShortStoryDescription>
-                Follow Robin, our non-binary protagonist, across worlds that
-                represent societal constructs of identity and gender. In each
-                world, Robin confronts different facets of the self: perception,
-                survival, generational memory and genetics, and ultimately, the
-                soul. As they navigate these realms, Robin discovers the
-                fluidity and complexity of identity, challenging their
-                perception of self along the way. The journey starts in a world
-                of shape-shifters where apparent perfection can be achieved, but
-                culminates in the world of reincarnation, where the self is
-                defined by the desire for self-discovery. Through allegory, the
-                story explores themes of self-acceptance and fluidity of gender
-                identity.
+                
               </ShortStoryDescription>
               <ShortStoryLinks>
                 <ShortStoryButton disabled={true}>Coming 2026</ShortStoryButton>
@@ -71,6 +63,6 @@ const BooksPage: React.FC<PageProps> = () => {
   );
 };
 
-export default BooksPage;
+export default TTRPGPage;
 
-export const Head: HeadFC = () => <title>Books</title>;
+export const Head: HeadFC = () => <title>TTRPG</title>;
